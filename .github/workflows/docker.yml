@@ -38,7 +38,7 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: pyfound/black:latest,pyfound/black:${{ env.GIT_TAG }}
+          tags: pszlazak/black-test,pszlazak/black-test:${{ env.GIT_TAG }}
           
       - name: Build and push latest_release tag
         if: ${{ github.event_name == 'release' && github.event.action == 'created' }}
@@ -47,7 +47,7 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: pyfound/black:latest_release
+          tags: pszlazak/black-test:latest_release
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
